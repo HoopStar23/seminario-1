@@ -9,7 +9,7 @@ class CardPage extends StatelessWidget{
       ),
       body: ListView(
         padding: EdgeInsets.all(20),
-        children: <Widget>[_cartTipo1()],
+        children: <Widget>[_cartTipo1(), SizedBox(width: 10), _cartTipo2()],
       ),
     );
   }
@@ -31,6 +31,27 @@ class CardPage extends StatelessWidget{
               TextButton(child: Text('Ok'), onPressed: (){})
             ],
           )
+        ],
+      ),
+    );
+  }
+
+  Widget _cartTipo2(){
+    return Card(
+      child: Column(
+        children: [
+          FadeInImage(
+            image: NetworkImage(
+            'https://www.yourtrainingedge.com/wpcontent/uploads/2019/05/background-calm-clouds-747964.jpg'),
+            placeholder: AssetImage('assets/jar-loading.gif'),
+            fadeInDuration: Duration(milliseconds: 10),
+            height: 250,
+            fit: BoxFit.cover,
+            ),
+            Container(
+              padding: EdgeInsets.all(10),
+              child: Text('Esta es la prueba de que funciona la imagen'),
+            )
         ],
       ),
     );

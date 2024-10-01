@@ -9,6 +9,8 @@ class _InputPageState extends State<InputPage>{
   String _nombre = "";
   String _email = "";
   String _fecha = "";
+  List<String> _hobbies = ['Leer', 'Ver Series', 'Viajar', 'Deporte'];
+  String _opcionSeleccionada = 'Leer';
   TextEditingController _inputFieldDateController = new TextEditingController();
 
   @override
@@ -19,7 +21,18 @@ class _InputPageState extends State<InputPage>{
       ),
       body: ListView(
         padding: EdgeInsets.symmetric(horizontal: 10, vertical: 2),
-        children: [_crearInput(), Divider(), _crearEmail(), _crearPassword(), Divider(), _crearFecha(), Divider(), _crearPersona()],
+        children: [
+          _crearInput(), 
+          Divider(), 
+          _crearEmail(), 
+          Divider(), 
+          _crearPassword(), 
+          Divider(), 
+          _crearFecha(), 
+          Divider(),
+          _crearDropdown(),
+          Divider(), 
+          _crearPersona()],
       ),
     );
   }
@@ -108,5 +121,36 @@ class _InputPageState extends State<InputPage>{
         _inputFieldDateController.text = _fecha;
       });
     }
+  }
+
+  Widget _crearDropdown(){
+    return Row(
+      children: [
+        Icon(Icons.select_all),
+        SizedBox(width: 30),
+        Expanded(
+          child: DropdownButton(
+            value: _opcionSeleccionada,
+            items: getOpcionesDropDown(),
+            onChanged: (opt){
+              setState(() {
+                _opcionSeleccionada = opt!;
+              });
+            }
+          )
+        )
+      ],
+    );
+  }
+
+  List<DropdownMenuItem<String>> getOpcionesDropDown(){
+    List<DropdownMenuItem<String>> lista = [];
+
+    _hobbies.forEach((element){
+      lista.add(DropdownMenuItem(
+        child: Text(element),
+        value: element));
+    });
+    return lista;
   }
 }

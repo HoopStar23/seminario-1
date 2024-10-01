@@ -46,7 +46,7 @@ class CardPage extends StatelessWidget{
         children: [
           FadeInImage(
             image: NetworkImage(
-            'https://www.yourtrainingedge.com/wpcontent/uploads/2019/05/background-calm-clouds-747964.jpg'),
+            'https://www.designyourway.net/blog/wp-content/uploads/2018/01/cool-computer-backgrounds-8.jpg'),
             placeholder: AssetImage('assets/jar-loading.gif'),
             fadeInDuration: Duration(milliseconds: 10),
             height: 250,

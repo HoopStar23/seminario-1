@@ -16,6 +16,10 @@ class CardPage extends StatelessWidget{
 
   Widget _cartTipo1(){
     return Card(
+      elevation: 10,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(20)
+      ),
       child: Column(
         children: <Widget>[
           ListTile(
@@ -37,7 +41,7 @@ class CardPage extends StatelessWidget{
   }
 
   Widget _cartTipo2(){
-    return Card(
+    final card = Container(
       child: Column(
         children: [
           FadeInImage(
@@ -55,5 +59,20 @@ class CardPage extends StatelessWidget{
         ],
       ),
     );
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(30),
+        boxShadow: <BoxShadow>[
+          BoxShadow(color: Colors.black26,
+          blurRadius: 10,
+          spreadRadius: 2,
+          offset: Offset(2, 10))
+          
+        ]),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(30),
+          child: card,
+        ));
   }
 }

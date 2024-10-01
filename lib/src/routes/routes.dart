@@ -4,6 +4,7 @@ import 'package:seminario_1/avatar_page.dart';
 import 'package:seminario_1/home_page.dart';
 import 'package:seminario_1/card_page.dart';
 import 'package:seminario_1/animated_container.dart';
+import 'package:seminario_1/input_page.dart';
 
 Map<String, WidgetBuilder> getApplicationRoutes(){
   return <String, WidgetBuilder>{
@@ -12,5 +13,6 @@ Map<String, WidgetBuilder> getApplicationRoutes(){
     'avatar':(BuildContext context) => AvatarPage(),
     'card':(BuildContext context) => CardPage(),
     'animatedContainer':(BuildContext context) => AnimatedContainerPage(),
+    'inputs':(BuildContext context) => InputPage(),
   };
 }

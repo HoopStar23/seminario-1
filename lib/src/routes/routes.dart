@@ -5,6 +5,7 @@ import 'package:seminario_1/home_page.dart';
 import 'package:seminario_1/card_page.dart';
 import 'package:seminario_1/animated_container.dart';
 import 'package:seminario_1/input_page.dart';
+import 'package:seminario_1/listview_page.dart';
 import 'package:seminario_1/slider_page.dart';
 
 Map<String, WidgetBuilder> getApplicationRoutes(){
@@ -16,5 +17,6 @@ Map<String, WidgetBuilder> getApplicationRoutes(){
     'animatedContainer':(BuildContext context) => AnimatedContainerPage(),
     'inputs':(BuildContext context) => InputPage(),
     'slider': (BuildContext context) => SliderPage(),
+    'list':(BuildContext context) => ListaPage(),
   };
 }

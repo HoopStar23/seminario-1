@@ -42,7 +42,9 @@ class _ListaPageState extends State<ListaPage>{
 
 
   Widget _crearLista(){
-    return ListView.builder(
+    return RefreshIndicator(
+      onRefresh: obtenerPagina1,
+      child: ListView.builder(
       controller: _scrollController,
       itemCount: _listaNumeros.length,
       itemBuilder: (BuildContext context, int index){
@@ -53,8 +55,9 @@ class _ListaPageState extends State<ListaPage>{
           height: 250,
           placeholder: AssetImage('assets/jar-loading.gif'),
           image: NetworkImage('https://picsum.photos/500/300?image=$imagen'));
-      },
-    );
+        },
+      )
+    ); 
   }
 
   Future fetchData() async{
@@ -96,5 +99,17 @@ class _ListaPageState extends State<ListaPage>{
     }else{
       return Container();
     }
+  }
+
+  Future<Null> obtenerPagina1() async{
+    final duration = new Duration(seconds: 2);
+    setState(() {
+      new Timer(duration, (){
+        _listaNumeros.clear();
+        _lastItem++;
+        _agregar10();
+      });
+    });
+    return Future.delayed(duration);
   }
 }

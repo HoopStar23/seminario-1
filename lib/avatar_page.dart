@@ -1,6 +1,14 @@
 import 'package:flutter/material.dart';
 
-class AvatarPage extends StatelessWidget{
+class AvatarPage extends StatefulWidget{
+  @override
+  _AvatarPageState createState() => _AvatarPageState();
+}
+
+class _AvatarPageState extends State<AvatarPage>{
+  String _imagen1 = 'assets/Michael-Jordan-1.jpg';
+  String _imagen2 = 'assets/michael-jordan-5.jpg';
+
   @override
   Widget build(BuildContext context){
     return Scaffold(
@@ -17,17 +25,39 @@ class AvatarPage extends StatelessWidget{
           Container(
             padding: EdgeInsets.all(6.5),
             child: CircleAvatar(
-              backgroundImage: NetworkImage('https://www.sportscasting.com/wp-content/uploads/2020/12/Michael-Jordan-1.jpg'),
+              backgroundImage: AssetImage(_imagen1),
               radius: 25,
             )
           ) 
         ],
       ),
-      body: Center(
-        child: FadeInImage(
-          placeholder: AssetImage('assets/jar-loading.gif'),
-           image: NetworkImage('https://eskipaper.com/images/michael-jordan-5.jpg')),
-      ),
+      body:Center(
+        child: Container(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            FadeInImage(
+            placeholder: AssetImage('assets/jar-loading.gif'),
+            image: AssetImage(_imagen2)),
+            SizedBox(height: 20),
+            IconButton(
+              iconSize: 50,
+              onPressed: _changeImagen,
+               icon: Icon(Icons.change_circle)
+              )
+           ],
+          ) 
+        )
+      ) 
     );
+  }
+
+  void _changeImagen(){
+    setState(() {
+      String imagenTemp = _imagen1;
+      _imagen1 = _imagen2;
+      _imagen2 = imagenTemp;
+    });
   }
 }

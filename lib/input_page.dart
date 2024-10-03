@@ -118,6 +118,7 @@ class _InputPageState extends State<InputPage>{
     if(picked != null){
       setState(() {
         _fecha = picked.toString();
+        _fecha = _fecha.substring(0,11);
         _inputFieldDateController.text = _fecha;
       });
     }

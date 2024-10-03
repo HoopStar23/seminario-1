@@ -12,14 +12,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Componentes APP',
       debugShowCheckedModeBanner: false,
-      localizationsDelegates: [
+      localizationsDelegates: const[
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      supportedLocales: [
-        const Locale('en', ''),
-        const Locale('es', 'ES'),
+      supportedLocales: const[
+        Locale('es', 'ES'),
+        Locale('en', '')
       ],
       initialRoute: '/',
       routes: getApplicationRoutes(),

@@ -7,6 +7,7 @@ class SliderPage extends StatefulWidget{
 
 class _SliderPageState extends State<SliderPage>{
   double _valorSlider = 100.0;
+  double _rotationValue = 0.0;
   bool _bloquearCheck = false;
   @override
   Widget build(BuildContext context){
@@ -17,12 +18,19 @@ class _SliderPageState extends State<SliderPage>{
       body: Container(
         padding: EdgeInsets.only(top: 50.0),
         child: Column(
-          children: [_crearSlider(), _crearCheckbox(), _crearSwitch(), Expanded(child: _crearImagen())],
+          children: [
+            Title(color: Colors.black, child: Text('Tamaño', style: TextStyle(fontWeight: FontWeight.bold),)),
+             _crearSliderSize(),
+             Title(color: Colors.black, child: Text('Rotación', style: TextStyle(fontWeight: FontWeight.bold),)),
+            _crearSliderRotate(),
+            _crearCheckbox(),
+            _crearSwitch(),
+            Expanded(child: Transform.rotate(angle: _rotationValue  * (3.1416 / 180), child: _crearImagen())) ],
         ),
       ));
   }
 
-  Widget _crearSlider(){
+  Widget _crearSliderSize(){
     return Slider(
       activeColor: Colors.indigoAccent,
       label: 'Tamaño de la imagen',
@@ -32,6 +40,20 @@ class _SliderPageState extends State<SliderPage>{
       onChanged:(_bloquearCheck) ? null : (valor){
         setState(() {
           _valorSlider = valor;
+        });
+      });
+  }
+
+  Widget _crearSliderRotate(){
+    return Slider(
+      activeColor: Colors.indigoAccent,
+      label: 'Rotacion de la imagen',
+      value: _rotationValue, 
+      min: 0.0,
+      max: 360.0,
+      onChanged:(_bloquearCheck) ? null : (valor){
+        setState(() {
+          _rotationValue = valor;
         });
       });
   }

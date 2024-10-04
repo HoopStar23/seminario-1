@@ -32,7 +32,6 @@ class _AvatarPageState extends State<AvatarPage>{
         ],
       ),
       body:Center(
-        child: Container(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -48,7 +47,6 @@ class _AvatarPageState extends State<AvatarPage>{
               )
            ],
           ) 
-        )
       ) 
     );
   }

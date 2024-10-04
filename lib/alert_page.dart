@@ -5,20 +5,27 @@ class AlertPage extends StatelessWidget{
   Widget build(BuildContext context){
     return Scaffold(
       appBar: AppBar(
-        title: Text('Alert Page'),
+        title: Text('Alert Page',
+        style: TextStyle(
+          color: const Color.fromARGB(255, 145, 2, 2),
+          decoration: TextDecoration.underline,
+          fontWeight: FontWeight.bold)),
+        backgroundColor: Colors.amber,
       ),
       body: Center(
         child: ElevatedButton(
           child:Text('Mostrar Alerta'),
           style: ElevatedButton.styleFrom(
+            fixedSize: Size(190, 70),
             foregroundColor: Colors.blue,
             overlayColor: Colors.white,
             shape: StadiumBorder()),
           onPressed: () => _mostrarAlerta(context),
-          ),
+          ),   
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add_location),
+        child: Icon(Icons.home),
         onPressed:() {
           Navigator.pop(context);
         }),
@@ -38,7 +45,7 @@ class AlertPage extends StatelessWidget{
             mainAxisSize: MainAxisSize.min,
             children: [
               Text('Este es el contenido de la caja de la alerta'),
-              FlutterLogo(size: 70)
+              Image(image: AssetImage('assets/nba-teams.gif'))
             ],
           ),
           actions: [

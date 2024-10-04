@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
 
-class CardPage extends StatelessWidget{
+class CardPage extends StatefulWidget{
+  @override
+  _CardPageState createState() => _CardPageState();
+}
+
+class _CardPageState extends State<CardPage>{
+  bool _isVisible = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,7 +22,8 @@ class CardPage extends StatelessWidget{
   }
 
   Widget _cartTipo1(){
-    return Card(
+    return _isVisible 
+    ? Card(
       elevation: 10,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(20)
@@ -23,7 +31,14 @@ class CardPage extends StatelessWidget{
       child: Column(
         children: <Widget>[
           ListTile(
-            leading: Icon(Icons.photo_album, color: Colors.blue,),
+            leading: Icon(Icons.photo_album, color: Colors.blue),
+            trailing: IconButton(
+              onPressed: (){
+                setState(() {
+                  _isVisible = false;
+                });
+              },
+            icon: Icon(Icons.close)),
             title: Text('Soy el titulo de esta tarjeta'),
             subtitle: Text( 
               'Esta es una prueba para ver lo que ocurre con una tarjeta que tie ne un subtitle bastante largo y que no sabemos como responderá')
@@ -37,7 +52,8 @@ class CardPage extends StatelessWidget{
           )
         ],
       ),
-    );
+    )
+    : SizedBox.shrink();
   }
 
   Widget _cartTipo2(){
